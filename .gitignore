@@ -1,0 +1,27 @@
+# Data is never committed. Licensed data (CRSP, Compustat, I/B/E/S, OptionMetrics) must not be
+# redistributed, so the whole data directory stays local (Technical Reference, Part 2.1).
+data/raw/
+data/clean/
+data/features/
+data/outputs/
+*.parquet
+*.duckdb
+*.csv.gz
+
+# Secrets: API keys live in .env only (see .env.example).
+.env
+
+# Python artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Notebooks and OS files
+.ipynb_checkpoints/
+.DS_Store

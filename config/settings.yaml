@@ -1,0 +1,81 @@
+# Project Atlas settings. Every number here corresponds to a parameter in the specification
+# (docs/Project_Atlas_Specification.docx); the section is given next to each block.
+
+paths:
+  data_root: data            # Section 0.1 storage layers live under this folder
+  raw: data/raw
+  clean: data/clean
+  features: data/features
+  outputs: data/outputs
+  registry: data/outputs/research_registry.csv
+
+mandate:                     # Section A.1
+  strategy: market_neutral_long_short
+  target_volatility: 0.10
+  gross_exposure_max: 3.0
+  net_exposure_max: 0.05
+  max_position: 0.03
+  benchmark: cash
+
+scenarios:                   # Section A.3
+  horizon_months: 12
+  absolute_threshold: 0.15
+  relative_threshold: 0.10
+
+universe:                    # Section 0.5
+  min_price: 5.0
+  min_market_cap: 500000000   # $500M
+  min_adv_dollars: 5000000    # $5M
+  adv_window: 20
+
+cleaning:                    # Section 0.6
+  robust_z_clip: 3.0
+  winsor_lower: 0.01
+  winsor_upper: 0.99
+  ffill_days_prices: 5
+  ffill_days_fundamentals: 92
+
+monte_carlo:                 # Section 1.5
+  n_simulations: 10000
+  years: 5
+  bull_threshold: 0.15
+  bear_threshold: -0.15
+
+macro:                       # Section 2
+  esi_half_life_days: 21
+  hmm_states_range: [2, 6]
+  var_max_lags: 6
+
+news:                        # Section 3
+  duplicate_jaccard: 0.8
+  shingle_size: 5
+  novelty_window_hours: 72
+  entity_confidence: 0.8
+  event_z: 2.0
+  poisson_p: 0.01
+  lambda_grid: [0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
+
+factor_model:                # Section 6.3
+  cov_half_life_days: 90
+  beta_window_days: 252
+
+forecast:                    # Section 7
+  horizons_days: {short: 21, long: 252}
+  retrain_frequency: monthly
+  embargo_days: 21
+
+risk:                        # Section 8
+  var_level: 0.95
+  fhs_window: 500
+  evt_threshold_quantile: 0.95
+  participation_rate: 0.20
+  drawdown_cut: 0.08
+  drawdown_restore: 0.04
+  max_borrow_fee: 0.05
+  max_utilisation: 0.80
+
+testing:                     # Section 9
+  t_stat_min: 3.0
+  fdr_q: 0.05
+  dsr_min: 0.95
+  psi_alarm: 0.25
