@@ -7,7 +7,7 @@ fundamentals, macro data, news, flows, sentiment and sector structure into calib
 bear probabilities for every company, sizes positions under explicit risk limits, and tests every
 component statistically before it is allowed to influence a decision.
 
-The code implements the design set a document, included in `docs/`:
+The code implements the design set two documents, included in `docs/`:
 
 | Document | Referred to in the code as |
 |---|---|
