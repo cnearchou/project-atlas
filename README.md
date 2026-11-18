@@ -153,6 +153,32 @@ suite and the synthetic demo on every push once it is moved to `.github/workflow
 * **Costs are part of the model.** Spreads, square-root impact and borrow fees enter the optimiser.
 * **Everything is recorded.** Settings live in one file, experiments in the registry, code in git.
 
+## Collaboration
+
+Project Atlas is an open, ongoing project, and collaborators are welcome. Students and practitioners
+interested in quantitative finance, statistics, machine learning or software engineering are invited
+to help improve it, whether by reviewing the methodology, fixing bugs, adding tests or building one of
+the unfinished layers.
+
+Areas where help is especially welcome:
+
+* **Real-data ingestion:** connecting the news (Spec §3), flows (Spec §4) and options (Spec §1.6)
+  layers to live free data sources.
+* **Validation:** checking formulas against the specification and looking for look-ahead bias.
+* **Testing on real data:** running the research harness (Spec §9) on CRSP/Compustat or free data.
+* **Performance:** speeding up the factor model and Monte Carlo simulations.
+* **Front end:** a Streamlit app with company, portfolio and research pages (Spec §10.3).
+
+**How to get involved**
+
+1. Open an [Issue](https://github.com/cnearchou/project-atlas/issues) to introduce yourself, suggest
+   an improvement or ask which task to pick up.
+2. Fork the repository, create a branch, and open a pull request. Each change should cite the
+   specification section it implements, include a test, and pass `pytest`.
+3. Licensed data and API keys are never committed (see *Data licensing and secrets* above).
+
+Feedback on the design itself is just as valuable as code, so questions and critiques are welcome too.
+
 ## Licence
 
 MIT, see `LICENSE`. The licence covers the code only; it gives no rights to any vendor's data.
